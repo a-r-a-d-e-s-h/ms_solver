@@ -37,7 +37,7 @@ class Game:
 
     def click(self, row, col):
         if not self.on_board(row, col):
-            raise RuntimeError("({}, {}) is not within the bounds of the board.")
+            raise RuntimeError("({}, {}) is not within the bounds of the board.".format(row, col))
         if self.mine_array.is_mine(row, col):
             for index, val in enumerate(self.mine_array.array):
                 if val:
