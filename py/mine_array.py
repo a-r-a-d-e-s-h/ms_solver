@@ -13,6 +13,7 @@ class MineArray(Grid):
         return bool(self.get(row, col))
 
     def randomize(self):
+        self.clear()
         squares = self.width * self.height
         total_placed = 0
         while total_placed < self.mines:

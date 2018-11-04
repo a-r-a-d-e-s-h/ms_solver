@@ -14,7 +14,8 @@ class Tile(Enum):
     UNOPENED = '.'
     MINE = 'm'
     BLAST = 'M'
-    FLAG = 'f'
+    FLAG = 'x'
+    SAFE = 'o'
 
     @classmethod
     def num(cls, n):

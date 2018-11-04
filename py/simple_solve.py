@@ -1,0 +1,2 @@
+def solve(board):
+    pass
