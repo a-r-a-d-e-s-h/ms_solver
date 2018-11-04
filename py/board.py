@@ -15,7 +15,7 @@ class Tile(Enum):
     MINE = 'm'
     BLAST = 'M'
     FLAG = 'x'
-    SAFE = 'o'
+    SAFE = '_'
 
     @classmethod
     def num(cls, n):
@@ -23,6 +23,9 @@ class Tile(Enum):
 
     def is_num(self):
         return (type(self.value) is int) and (0 <= self.value <= 8)
+
+    def is_safe(self):
+        return self.is_num() or (self == Tile.SAFE)
 
     def __str__(self):
         if self.value == 0:

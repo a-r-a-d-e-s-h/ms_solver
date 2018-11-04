@@ -20,16 +20,8 @@ class Game:
         self.randomize_mines()
         self.start()
 
-    def neighbours(self, row, col):
-        def neighbour_iter():
-            for i in range(max(row-1, 0), min(row+2, self.height)):
-                for j in range(max(col-1, 0), min(col+2, self.width)):
-                    if i != row or j != col:
-                        yield (i, j)
-        return neighbour_iter()
-
     def neighbour_count(self, row, col):
-        neighbours = self.neighbours(row, col)
+        neighbours = self.mine_array.neighbours(row, col)
         return sum(self.mine_array.get(*coord) for coord in neighbours)
 
     def on_board(self, row, col):
@@ -58,7 +50,7 @@ class Game:
             n_count = self.neighbour_count(row, col)
             board.set(row, col, Tile.num(n_count))
             if n_count == 0:
-                for (i, j) in self.neighbours(row, col):
+                for (i, j) in self.mine_array.neighbours(row, col):
                     if self.board.get(i, j).is_num():
                         continue
                     if (i, j) in to_do:

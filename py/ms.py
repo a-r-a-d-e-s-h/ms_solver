@@ -1,4 +1,5 @@
 import ms_game
+import simple_solve
 from board import Tile
 
 def main():
@@ -13,6 +14,14 @@ def main():
             hit_opening = True
     print("After {} attempts:".format(attempts))
     print(game)
+    result = True
+    cycles = 0
+    while result:
+        cycles += 1
+        result = simple_solve.solve(game.board)
+    print("After {} naive cycles...".format(cycles))
+    print(game)
+    
 
 if __name__ == "__main__":
     main()

@@ -25,6 +25,14 @@ class Grid:
     def convert_to_index(self, row, col):
         return row*self.width + col
 
+    def neighbours(self, row, col):
+        def neighbour_iter():
+            for i in range(max(row-1, 0), min(row+2, self.height)):
+                for j in range(max(col-1, 0), min(col+2, self.width)):
+                    if i != row or j != col:
+                        yield (i, j)
+        return neighbour_iter()
+
     def val_to_string(self, val):
         return str(val)
 
