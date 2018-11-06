@@ -57,6 +57,15 @@ class Game:
                         continue
                     to_do.append((i, j))
 
+    def is_solved(self):
+        for row in range(self.height):
+            for col in range(self.width):
+                mine = self.mine_array.get(row, col)
+                if mine == 0:
+                    if not self.board.get(row, col).is_num():
+                        return False
+        return True
+
 
     def __str__(self):
         return str(self.board)

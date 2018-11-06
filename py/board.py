@@ -14,7 +14,7 @@ class Tile(Enum):
     UNOPENED = '.'
     MINE = 'm'
     BLAST = 'M'
-    FLAG = 'x'
+    FLAG = '^'
     SAFE = '_'
 
     @classmethod
